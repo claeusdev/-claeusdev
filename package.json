@@ -1,0 +1,23 @@
+{
+  "name": "@claeusdev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:utils\" \"npm:dev:blog\" \"npm:dev:dashboard\"",
+    "safety": "concurrently \"npm:test:*\" \"npm:test:*\" --kill-others-on-fail",
+    "dev:utils": "npm run dev -w @claeusdev/utils",
+    "dev:blog": "npm run dev -w @claeusdev/dashboard",
+    "dev:dashboard": "npm run dev -w @claeusdev/dashboard"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
